@@ -8,24 +8,23 @@
  *  @bug No know bugs.
  */
 
-#include "global.h"
-#include "const.h"
-#include "m_utils.h"
+#include "includes/global.h"
+#include "includes/const.h"
+#include "includes/m_utils.h"
 
-#include "position.h"
-#include "Mjday.h"
-#include "ode.h"
-#include "Accel.h"
-#include "LTC.h"
-#include "gmst.h"
-#include "R_z.h"
-#include "TimeUpdate.h"
-#include "AzElPa.h"
-#include "MeasUpdate.h"
-#include "IERS.h"
-#include "timediff.h"
-
-#include "VarEqn.h"
+#include "includes/position.h"
+#include "includes/Mjday.h"
+#include "includes/ode.h"
+#include "includes/Accel.h"
+#include "includes/LTC.h"
+#include "includes/gmst.h"
+#include "includes/R_z.h"
+#include "includes/TimeUpdate.h"
+#include "includes/AzElPa.h"
+#include "includes/MeasUpdate.h"
+#include "includes/IERS.h"
+#include "includes/timediff.h"
+#include "includes/VarEqn.h"
 
 #include <stdio.h>
 #include <math.h>
