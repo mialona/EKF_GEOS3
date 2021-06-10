@@ -45,9 +45,9 @@ double *AccelHarmonic(double *r, double **E, int n_max, int m_max) {
 		b2 =  (gm/d)*pow((r_ref/d),n);
 		b3 =  (gm/d)*pow((r_ref/d),n);
 		for(int m=0; m<=m_max; m++) {
-			q1 = q1 + pnm[n+1][m+1]*(Cnm[n+1][m+1]*cos(m*lon)+Snm[n+1][m+1]*sin(m*lon));
-			q2 = q2 + dpnm[n+1][m+1]*(Cnm[n+1][m+1]*cos(m*lon)+Snm[n+1][m+1]*sin(m*lon));
-			q3 = q3 + m*pnm[n+1][m+1]*(Snm[n+1][m+1]*cos(m*lon)-Cnm[n+1][m+1]*sin(m*lon));
+			q1 = q1 + pnm[n][m]*(Cnm[n][m]*cos(m*lon)+Snm[n][m]*sin(m*lon));
+			q2 = q2 + dpnm[n][m]*(Cnm[n][m]*cos(m*lon)+Snm[n][m]*sin(m*lon));
+			q3 = q3 + m*pnm[n][m]*(Snm[n][m]*cos(m*lon)-Cnm[n][m]*sin(m*lon));
 		}
 		dUdr     = dUdr     + q1*b1;
 		dUdlatgc = dUdlatgc + q2*b2;

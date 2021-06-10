@@ -44,10 +44,10 @@ void GGM03S(int n) {
 	extern int fCnm, cCnm, fSnm, cSnm;
 	Cnm = m_zeros(n,n);
 	Snm = m_zeros(n,n);
-	fCnm = n; //182
-	cCnm = n; //182
-	fSnm = n; //182
-	cSnm = n; //182
+	fCnm = n; //181
+	cCnm = n; //181
+	fSnm = n; //181
+	cSnm = n; //181
 	
 	double aux1, aux2;
 	int f, c;
@@ -60,7 +60,7 @@ void GGM03S(int n) {
 	
 	for(int i=0; i<n; i++) {
 		for(int j=0; j<=i; j++) {
-			fscanf(fp,"%d%d%lf%lf%lf%lf",&f,&c,&Cnm[i+1][j+1],&Snm[i+1][j+1],&aux1,&aux2);
+			fscanf(fp,"%d%d%lf%lf%lf%lf",&f,&c,&Cnm[i][j],&Snm[i][j],&aux1,&aux2);
 		}
 	}
 	
