@@ -11,10 +11,6 @@
 #ifndef _RY_
 #define _RY_
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
-
 
 /** @brief Vector rotation about y axis.
  *

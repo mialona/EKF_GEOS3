@@ -13,12 +13,6 @@
 #ifndef _ELEMENTS_
 #define _ELEMENTS_
 
-#include "const.h"
-#include "m_utils.h"
-
-#include <stdio.h>
-#include <math.h>
-
 
 /** @brief Osculating Keplerian elements from the satellite state
  *  vector for elliptic orbits.

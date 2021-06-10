@@ -12,12 +12,6 @@
 #ifndef _EQNEQUINOX_
 #define _EQNEQUINOX_
 
-#include "NutAngles.h"
-#include "MeanObliquity.h"
-
-#include <stdio.h>
-#include <math.h>
-
 
 /** @brief Equation of the equinoxes.
  *  

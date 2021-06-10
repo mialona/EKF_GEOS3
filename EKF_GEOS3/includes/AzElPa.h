@@ -12,13 +12,6 @@
 #ifndef _AZELPA_
 #define _AZELPA_
 
-#include "const.h"
-#include "m_utils.h"
-
-#include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
-
 
 /** @brief Calculation of azimuth, elevation and partials from local
  *  tangent coordinates.

@@ -12,11 +12,6 @@
 #ifndef _ODE_
 #define _ODE_
 
-# include <stdlib.h>
-# include <stdio.h>
-# include <math.h>
-# include <time.h>
-
 
 /** @brief Interface to an ordinary differential equation solver.
  *

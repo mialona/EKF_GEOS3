@@ -13,6 +13,7 @@
 #include "../includes/m_utils.h"
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <math.h>
 
 

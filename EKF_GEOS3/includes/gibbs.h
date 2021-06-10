@@ -12,13 +12,6 @@
 #ifndef _GIBBS_
 #define _GIBBS_
 
-#include "const.h"
-#include "m_utils.h"
-#include "unit.h"
-
-#include <stdio.h>
-#include <math.h>
-
 
 /** @brief Gibbs method of orbit determination.
  *  

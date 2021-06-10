@@ -13,13 +13,6 @@
 #ifndef _ACCELHARMONIC_
 #define _ACCELHARMONIC_
 
-#include "global.h"
-#include "Legendre.h"
-#include "m_utils.h"
-
-#include <stdio.h>
-#include <math.h>
-
 
 /** @brief Acceleration due to the harmonic gravity field of the 
  *  central body.

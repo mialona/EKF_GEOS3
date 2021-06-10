@@ -15,23 +15,6 @@
 #ifndef _ACCEL_
 #define _ACCEL_
 
-#include "global.h"
-#include "const.h"
-#include "IERS.h"
-#include "timediff.h"
-#include "PrecMatrix.h"
-#include "NutMatrix.h"
-#include "m_utils.h"
-#include "PoleMatrix.h"
-#include "GHAMatrix.h"
-#include "Mjday_TDB.h"
-#include "JPL_Eph_DE430.h"
-#include "AccelHarmonic.h"
-#include "AccelPointMass.h"
-
-#include <stdio.h>
-#include <math.h>
-
 
 /** @brief Acceleration of an Earth orbiting satellite.
  *

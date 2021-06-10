@@ -11,10 +11,6 @@
 #ifndef _RZ_
 #define _RZ_
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
-
 
 /** @brief Vector rotation about z axis.
  *

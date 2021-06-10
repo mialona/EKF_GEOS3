@@ -13,12 +13,6 @@
 #ifndef _LTC_
 #define _LTC_
 
-#include "m_utils.h"
-#include "R_y.h"
-#include "R_z.h"
-
-#include <stdio.h>
-
 
 /** @brief Transformation from Greenwich meridian system to 
  *  local tangent coordinates.

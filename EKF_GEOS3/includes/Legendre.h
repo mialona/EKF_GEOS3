@@ -12,11 +12,6 @@
 #ifndef _LEGENDRE_
 #define _LEGENDRE_
 
-#include "m_utils.h"
-
-#include <stdio.h>
-#include <math.h>
-
 
 /** @brief Legendre coefficients.
  *

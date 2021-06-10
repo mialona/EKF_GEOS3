@@ -14,11 +14,6 @@
 #ifndef _GHAMATRIX_
 #define _GHAMATRIX_
 
-#include "R_z.h"
-#include "gast.h"
-
-#include <stdio.h>
-
 
 /** @brief Transformation from true equator and equinox to Earth 
  *  equator and Greenwich meridian system.

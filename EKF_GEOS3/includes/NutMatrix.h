@@ -12,10 +12,6 @@
 #ifndef _NUTMATRIX_
 #define _NUTMATRIX_
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
-
 
 /** @brief Transformation from mean to true equator and equinox.
  *

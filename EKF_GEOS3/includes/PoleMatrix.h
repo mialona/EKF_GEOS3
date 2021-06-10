@@ -12,13 +12,6 @@
 #ifndef _POLEMATRIX_
 #define _POLEMATRIX_
 
-#include "const.h"
-#include "m_utils.h"
-
-#include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
-
 
 /** @brief Pseudo Earth-fixed to Earth-fixed coordinates for a given date.
  *

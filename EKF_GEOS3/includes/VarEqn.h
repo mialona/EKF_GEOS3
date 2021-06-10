@@ -13,21 +13,6 @@
 #ifndef _VAREQN_
 #define _VAREQN_
 
-#include "global.h"
-#include "const.h"
-#include "IERS.h"
-#include "timediff.h"
-#include "PrecMatrix.h"
-#include "NutMatrix.h"
-#include "m_utils.h"
-#include "PoleMatrix.h"
-#include "GHAMatrix.h"
-#include "AccelHarmonic.h"
-#include "G_AccelHarmonic.h"
-
-#include <stdio.h>
-#include <math.h>
-
 
 /** @brief Variational equations.
  *

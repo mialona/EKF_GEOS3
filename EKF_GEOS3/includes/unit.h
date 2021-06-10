@@ -12,11 +12,6 @@
 #ifndef _UNIT_
 #define _UNIT_
 
-#include "m_utils.h"
-
-#include <stdio.h>
-#include <math.h>
-
 
 /** @brief Calculation of a unit vector given the original vector.
  *  If a zero vector is input, the vector is set to zero.

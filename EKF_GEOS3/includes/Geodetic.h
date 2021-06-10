@@ -12,12 +12,6 @@
 #ifndef _GEODETIC_
 #define _GEODETIC_
 
-#include "const.h"
-#include "m_utils.h"
-
-#include <stdio.h>
-#include <math.h>
-
 
 /** @brief Geodetic coordinates.
  *

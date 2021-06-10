@@ -12,12 +12,6 @@
 #ifndef _JPL_
 #define _JPL_
 
-#include "m_utils.h"
-#include "Cheb3D.h"
-
-#include <stdio.h>
-#include <math.h>
-
 
 /** @brief Sun, moon, and nine major planets' equatorial position using JPL Ephemerides.
  *

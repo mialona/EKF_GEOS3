@@ -12,12 +12,6 @@
 #ifndef _G_ACCELHARMONIC_
 #define _G_ACCELHARMONIC_
 
-#include "m_utils.h"
-#include "AccelHarmonic.h"
-
-#include <stdio.h>
-#include <math.h>
-
 
 /** @brief Gradient of the Earth's harmonic gravity field.
  *

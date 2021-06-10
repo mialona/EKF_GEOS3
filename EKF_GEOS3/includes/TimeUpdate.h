@@ -12,10 +12,6 @@
 #ifndef _TIMEUPDATE_
 #define _TIMEUPDATE_
 
-#include "m_utils.h"
-
-#include <stdio.h>
-
 
 /** @brief Time updater.
  *

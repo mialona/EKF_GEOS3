@@ -12,10 +12,6 @@
 #ifndef _MEASUPDATE_
 #define _MEASUPDATE_
 
-#include "m_utils.h"
-
-#include <stdio.h>
-
 
 /** @brief Meas updater.
  *

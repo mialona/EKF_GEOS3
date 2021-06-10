@@ -12,10 +12,6 @@
 #ifndef _ECCANOM_
 #define _ECCANOM_
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
-
 
 /** @brief Eccentric anomaly for elliptic orbits.
  *

@@ -12,8 +12,6 @@
 #ifndef _SIGN_
 #define _SIGN_
 
-#include <math.h>
-
 
 /** @brief Absolute value of a with sign of b.
  *

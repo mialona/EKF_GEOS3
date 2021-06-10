@@ -12,14 +12,6 @@
 #ifndef _HGIBBS_
 #define _HGIBBS_
 
-#include "const.h"
-#include "m_utils.h"
-#include "unit.h"
-#include "angl.h"
-
-#include <stdio.h>
-#include <math.h>
-
 
 /** @brief Herrick-gibbs approximation for orbit determination.
  *  

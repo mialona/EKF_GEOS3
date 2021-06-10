@@ -12,10 +12,6 @@
 #ifndef _MJDAY_
 #define _MJDAY_
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
-
 
 /** @brief Calculation of the Modified julian date.
  *

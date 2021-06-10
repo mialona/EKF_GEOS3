@@ -12,11 +12,6 @@
 #ifndef _CHEB3D_
 #define _CHEB3D_
 
-#include "m_utils.h"
-
-#include <stdio.h>
-#include <stdlib.h>
-
 
 /** @brief Chebyshev approximation of 3-dimensional vectors.
  *

@@ -13,10 +13,6 @@
 #ifndef _MJDAY_TDB_
 #define _MJDAY_TDB_
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
-
 
 /** @brief Calculation of the Modified Julian Date
  *  for barycentric dynamical time.

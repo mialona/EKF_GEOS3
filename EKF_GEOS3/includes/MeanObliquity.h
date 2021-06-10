@@ -11,12 +11,6 @@
 #ifndef _MEANOBLIQUITY_
 #define _MEANOBLIQUITY_
 
-#include "const.h"
-
-#include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
-
 
 /** @brief Computation of the mean obliquity of the ecliptic.
  *

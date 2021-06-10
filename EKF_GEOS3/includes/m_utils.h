@@ -11,11 +11,6 @@
 #ifndef _MATUTILS_
 #define _MATUTILS_
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
-
-
 
 /** @brief Creating a vector of c components.
  *

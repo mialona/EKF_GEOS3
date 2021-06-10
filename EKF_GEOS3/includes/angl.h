@@ -12,11 +12,6 @@
 #ifndef _ANGL_
 #define _ANGL_
 
-#include "m_utils.h"
-
-#include <stdio.h>
-#include <math.h>
-
 
 /** @brief Angle between the two vectors (-pi to pi).
  *

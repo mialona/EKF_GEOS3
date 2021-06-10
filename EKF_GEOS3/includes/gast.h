@@ -12,12 +12,6 @@
 #ifndef _GAST_
 #define _GAST_
 
-#include "gmst.h"
-#include "EqnEquinox.h"
-
-#include <stdio.h>
-#include <math.h>
-
 
 /** @brief Greenwich Apparent Sidereal Time.
  *

@@ -12,14 +12,6 @@
 #ifndef _PRECMATRIX_
 #define _PRECMATRIX_
 
-#include "const.h"
-#include "m_utils.h"
-#include "R_y.h"
-#include "R_z.h"
-
-#include <stdio.h>
-#include <stdlib.h>
-
 
 /** @brief Precession transformation of equatorial coordinates.
  *

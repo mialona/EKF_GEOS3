@@ -12,10 +12,6 @@
 #ifndef _NUTANGLES_
 #define _NUTANGLES_
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
-
 
 /** @brief Calculation of the nutation in longitude and obliquity.
  *

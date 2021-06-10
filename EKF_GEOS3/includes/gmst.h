@@ -12,15 +12,6 @@
 #ifndef _GMST_
 #define _GMST_
 
-#include "const.h"
-#include "m_utils.h"
-#include "R_y.h"
-#include "R_z.h"
-
-#include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
-
 
 /** @brief Greenwich Mean Sidereal Time.
  *

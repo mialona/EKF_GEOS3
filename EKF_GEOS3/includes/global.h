@@ -12,11 +12,6 @@
 #ifndef _GLOBALES_
 #define _GLOBALES_
 
-#include "m_utils.h"
-
-#include <stdio.h>
-#include <stdlib.h>
-
 
 typedef struct {
 	double Mjd_UTC;

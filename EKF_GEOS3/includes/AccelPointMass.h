@@ -12,10 +12,6 @@
 #ifndef _ACCELPOINTMASS_
 #define _ACCELPOINTMASS_
 
-#include "m_utils.h"
-
-#include <stdio.h>
-
 
 /** @brief Perturbational acceleration due to a point mass.
  *

@@ -12,13 +12,6 @@
 #ifndef _IERS_
 #define _IERS_
 
-#include "const.h"
-#include "global.h"
-#include "m_utils.h"
-
-#include <stdio.h>
-#include <math.h>
-
 
 /** @brief IERS time and polar motion data.
  *

@@ -21,7 +21,7 @@ double angl(double *vec1, double *vec2) {
 	double magv1 = v_norm(vec1,3);
 	double magv2 = v_norm(vec2,3);
 
-	if(magv1*magv2 > small^2) {
+	if(magv1*magv2 > small*small) {
 		double temp = v_dot(vec1,3,vec2,3)/(magv1*magv2);
 		if(fabs(temp) > 1.0) {
 			temp = temp/fabs(temp);

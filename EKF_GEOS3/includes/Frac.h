@@ -12,9 +12,6 @@
 #ifndef _FRAC_
 #define _FRAC_
 
-#include <stdio.h>
-#include <math.h>
-
 
 /** @brief Fractional part of a number.
  *

@@ -11,8 +11,6 @@
 #ifndef _TIMEDIFF_
 #define _TIMEDIFF_
 
-#include <stdio.h>
-
 
 /** @brief Time differences [s].
  *
