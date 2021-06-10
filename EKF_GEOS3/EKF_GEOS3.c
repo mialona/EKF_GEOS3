@@ -27,6 +27,7 @@
 #include "includes/VarEqn.h"
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <math.h>
 
 
@@ -60,9 +61,13 @@ int main()
 	extern int n_eqn;
 	n_eqn = 6;
 	
-	double *Y0_apr = v_create(n_eqn);
-	Y0_apr[0] = 6221397.62857869; Y0_apr[1] = 2867713.77965741; Y0_apr[2] = 3006155.9850995;
-	Y0_apr[3] = 4645.0472516175; Y0_apr[4] = -2752.21591588182; Y0_apr[5] = -7507.99940986939;
+	double *Y = v_create(n_eqn);
+	Y[0] = 6221397.62857869;
+	Y[1] = 2867713.77965741;
+	Y[2] = 3006155.9850995;
+	Y[3] = 4645.0472516175;
+	Y[4] = -2752.21591588182;
+	Y[5] = -7507.99940986939;
 
 	double Mjd0 = Mjday(1995,1,29,2,38,0);
 
@@ -82,11 +87,7 @@ int main()
 	int iwork[5];
 	double t = 0.0, relerr = 1e-13, abserr = 1e-6;
 	double *work = v_create(100 + 21 * n_eqn);
-	ode(Accel, n_eqn, Y0_apr, &t, -(obs[8][0]-Mjd0)*86400.0, relerr, abserr, &iflag, work, iwork);
-	double *Y = v_create(n_eqn);
-	for(int i=0; i<=n_eqn; i++) {
-		Y[i] = Y0_apr[i];
-	}
+	ode(Accel, n_eqn, Y, &t, -(obs[8][0]-Mjd0)*86400.0, relerr, abserr, &iflag, work, iwork);
 
 	double **P = m_zeros(6,6);
 	  
@@ -105,7 +106,7 @@ int main()
 	// Measurement loop
 	t = 0.0;
 	
-	int t_old;
+	double t_old;
 	double x_pole, y_pole, UT1_UTC, LOD, dpsi, deps, dx_pole, dy_pole, TAI_UTC;
 	double UT1_TAI, UTC_GPS, UT1_GPS, TT_UTC, GPS_UTC;
 	double Mjd_TT, Mjd_UT1, t_aux;
@@ -139,10 +140,11 @@ int main()
 			}
 		}
 
+		n_eqn = 42;
 		t_aux = 0.0;
 		iflag = 1;
-		work = v_create(100 + 21 * 42);
-		ode(VarEqn, 42, yPhi, &t_aux, t-t_old, relerr, abserr, &iflag, work, iwork);
+		work = v_create(100 + 21 * n_eqn);
+		ode(VarEqn, n_eqn, yPhi, &t_aux, t-t_old, relerr, abserr, &iflag, work, iwork);
 
 		// Extract state transition matrices
 		for(int j=0; j<6; j++) {
@@ -151,6 +153,7 @@ int main()
 			}
 		}
 
+		n_eqn = 6;
 		t_aux = 0;
 		iflag = 1;
 		work = v_create(100 + 21 * n_eqn);
@@ -160,7 +163,7 @@ int main()
 		// Topocentric coordinates
 		theta = gmst(Mjd_UT1);                    // Earth rotation
 		U = R_z(theta);
-		for(int j=0; j<=3; j++) {
+		for(int j=0; j<3; j++) {
 			r[j] = Y[j];
 		}
 		s = m_dot_v(LT,3,3,v_sum(m_dot_v(U,3,3,r,3),3,v_mul_scalar(Rs,3,-1.0),3),3); // Topocentric position [m]
@@ -172,7 +175,7 @@ int main()
 		AzElPa(s, &Azim, &Elev, &dAds, &dEds);     // Azimuth, Elevation
 		aux = v_dot_m(dAds,3,m_dot(LT,3,3,U,3,3),3,3);
 		dAdY = v_create(6);
-		for(int j=0; j<=3; j++) {
+		for(int j=0; j<3; j++) {
 			dAdY[j] = aux[j];
 			dAdY[j+3] = 0.0;
 		}
@@ -181,14 +184,14 @@ int main()
 		MeasUpdate(obs[i][1],Azim,sigma_az,dAdY,&K,&Y,&P);
 
 		// Elevation and partials
-		for(int j=0; j<=3; j++) {
+		for(int j=0; j<3; j++) {
 			r[j] = Y[j];
 		}
 		s = m_dot_v(LT,3,3,v_sum(m_dot_v(U,3,3,r,3),3,v_mul_scalar(Rs,3,-1.0),3),3); // Topocentric position [m]
 		AzElPa(s, &Azim, &Elev, &dAds, &dEds);     // Azimuth, Elevation
 		aux = v_dot_m(dEds,3,m_dot(LT,3,3,U,3,3),3,3);
 		dEdY = v_create(6);
-		for(int j=0; j<=3; j++) {
+		for(int j=0; j<3; j++) {
 			dEdY[j] = aux[j];
 			dEdY[j+3] = 0.0;
 		}
@@ -197,7 +200,7 @@ int main()
 		MeasUpdate(obs[i][2],Elev,sigma_el,dEdY,&K,&Y,&P);
 
 		// Range and partials
-		for(int j=0; j<=3; j++) {
+		for(int j=0; j<3; j++) {
 			r[j] = Y[j];
 		}
 		s = m_dot_v(LT,3,3,v_sum(m_dot_v(U,3,3,r,3),3,v_mul_scalar(Rs,3,-1.0),3),3); // Topocentric position [m]
@@ -205,7 +208,7 @@ int main()
 		dDds = v_mul_scalar(s,3,1/Dist);         // Range
 		aux = v_dot_m(dDds,3,m_dot(LT,3,3,U,3,3),3,3);
 		dDdY = v_create(6);
-		for(int j=0; j<=3; j++) {
+		for(int j=0; j<3; j++) {
 			dDdY[j] = aux[j];
 			dDdY[j+3] = 0.0;
 		}
@@ -223,23 +226,19 @@ int main()
 	iflag = 1;
 	work = v_create(100 + 21 * n_eqn);
 	ode(Accel, n_eqn, Y, &t_aux, -(obs[45][0]-obs[0][0])*86400.0, relerr, abserr, &iflag, work, iwork);
-	double *Y0 = v_create(n_eqn);
-	for(int j=0; j<=n_eqn; j++) {
-		Y0[j] = Y[j];
-	}
 
 	double *Y_true = v_create(n_eqn);
 	Y_true[0] = 5753.173e3; Y_true[1] = 2673.361e3; Y_true[2] = 3440.304e3;
 	Y_true[3] = 4.324207e3; Y_true[4] = -1.924299e3; Y_true[5] = -5.728216e3;
 
 	printf("\nError of Position Estimation\n");
-	printf("dX	%10.1lf [m]\n",Y0[0]-Y_true[0]);
-	printf("dY	%10.1lf [m]\n",Y0[1]-Y_true[1]);
-	printf("dZ	%10.1lf [m]\n",Y0[2]-Y_true[2]);
+	printf("dX	%10.1lf [m]\n",Y[0]-Y_true[0]);
+	printf("dY	%10.1lf [m]\n",Y[1]-Y_true[1]);
+	printf("dZ	%10.1lf [m]\n",Y[2]-Y_true[2]);
 	printf("\nError of Velocity Estimation\n");
-	printf("dVx	%10.1lf [m/s]\n",Y0[3]-Y_true[3]);
-	printf("dVy	%10.1lf [m/s]\n",Y0[4]-Y_true[4]);
-	printf("dVz	%10.1lf [m/s]\n",Y0[5]-Y_true[6]);
+	printf("dVx	%10.1lf [m/s]\n",Y[3]-Y_true[3]);
+	printf("dVy	%10.1lf [m/s]\n",Y[4]-Y_true[4]);
+	printf("dVz	%10.1lf [m/s]\n",Y[5]-Y_true[5]);
 	
     return 0;
 }
