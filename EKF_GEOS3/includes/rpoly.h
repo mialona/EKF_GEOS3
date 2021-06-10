@@ -13,7 +13,7 @@
 #define _RPOLY_
 
 
-/** @brief Acceleration of an Earth orbiting satellite.
+/** @brief Roots of a polynomial with real coefficients.
  *
  *  @param [in] p Coefficients of the polynomial.
  *  @param [in] degree Polynomial degree.

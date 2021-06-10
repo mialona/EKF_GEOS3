@@ -26,6 +26,8 @@
 #include "includes/timediff.h"
 #include "includes/VarEqn.h"
 
+#include "includes/anglesg.h"
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
@@ -49,30 +51,20 @@ int main()
 
 	double *Rs = position(lon, lat, alt);
 
-	// // // Mjd1 = obs(1,1);
-	// // // Mjd2 = obs(9,1);
-	// // // Mjd3 = obs(18,1);
-	// // // 
-	// // // [r2,v2] = anglesg(obs(1,2),obs(9,2),obs(18,2),obs(1,3),obs(9,3),obs(18,3),...
-	// // //                   Mjd1,Mjd2,Mjd3,Rs,Rs,Rs);
-	// // // 
-	// // // Y0_apr = [r2;v2];
-
-	extern int n_eqn;
-	n_eqn = 6;
-	
-	double *Y = v_create(n_eqn);
-	Y[0] = 6221397.62857869;
-	Y[1] = 2867713.77965741;
-	Y[2] = 3006155.9850995;
-	Y[3] = 4645.0472516175;
-	Y[4] = -2752.21591588182;
-	Y[5] = -7507.99940986939;
-
-	double Mjd0 = Mjday(1995,1,29,2,38,0);
-
 	extern double **obs;
 	extern int fobs;
+	extern int n_eqn;
+	n_eqn = 6;
+
+	double *r2, *v2;
+	anglesg(obs[0][1],obs[8][1],obs[17][1],obs[0][2],obs[8][2],obs[17][2],
+			obs[0][0],obs[8][0],obs[17][0],Rs,Rs,Rs,&r2,&v2);
+
+	double *Y = v_create(n_eqn);
+	Y[0] = r2[0]; Y[1] = r2[1]; Y[2] = r2[2];
+	Y[3] = v2[0]; Y[4] = v2[1]; Y[5] = v2[2];
+
+	double Mjd0 = Mjday(1995,1,29,2,38,0);
 	double Mjd_UTC = obs[8][0];
 
 	extern Param AuxParam;

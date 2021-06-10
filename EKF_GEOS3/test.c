@@ -49,6 +49,7 @@
 #include "includes/VarEqn.h"
 #include "includes/ode.h"
 #include "includes/rpoly.h"
+#include "includes/anglesg.h"
 
 #include <stdio.h>
 #include <math.h>
@@ -1558,11 +1559,50 @@ int poly_roots_01() {
 			equals_vector(zeror_sol,zeror,degree,1e-7) &&
 			equals_vector(zeroi_sol,zeroi,degree,1e-7));
 
+
 	v_free(coef,9);
 	v_free(zeror,degree);
 	v_free(zeroi,degree);
 	v_free(zeror_sol,degree);
 	v_free(zeroi_sol,degree);
+
+    return 0;
+}
+
+/** @brief Unit test for function anglesg.
+ *
+ *  @return 0=error, 1=pass.
+ */
+int anglesg_01() {
+	double az1 = obs[0][1],
+		   az2 = obs[8][1],
+		   az3 = obs[17][1],
+		   el1 = obs[0][2],
+		   el2 = obs[8][2],
+		   el3 = obs[17][2],
+		   Mjd1 = obs[0][0],
+		   Mjd2 = obs[8][0],
+		   Mjd3 = obs[17][0];
+
+	double *Rs = v_create(3);
+	Rs[0] = -5512567.84003607; Rs[1] = -2196994.44666933; Rs[2] = 2330804.96614689;
+
+	double *r, *v;
+	anglesg(az1,az2,az3,el1,el2,el3,Mjd1,Mjd2,Mjd3,Rs,Rs,Rs,&r,&v);
+
+	double *r_sol = v_create(3);
+	r_sol[0] = 6221397.62857869; r_sol[1] = 2867713.77965741; r_sol[2] = 3006155.9850995;
+	double *v_sol = v_create(3);
+	v_sol[0] = 4645.0472516175; v_sol[1] = -2752.21591588182; v_sol[2] = -7507.99940986939;
+	_assert(equals_vector(r_sol,r,3,1e-5) &&
+			equals_vector(v_sol,v,3,1e-5));
+
+
+	v_free(Rs,3);
+	v_free(r,3);
+	v_free(v,3);
+	v_free(r_sol,3);
+	v_free(v_sol,3);
 
     return 0;
 }
@@ -1633,6 +1673,7 @@ int all_tests() {
 	_verify(ode_01);
 
 	_verify(poly_roots_01);
+	_verify(anglesg_01);
 
     return 0;
 }
