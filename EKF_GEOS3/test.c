@@ -48,6 +48,7 @@
 #include "includes/G_AccelHarmonic.h"
 #include "includes/VarEqn.h"
 #include "includes/ode.h"
+#include "includes/rpoly.h"
 
 #include <stdio.h>
 #include <math.h>
@@ -71,9 +72,10 @@ int equals_vector(double *v, double *w, int c, double p) {
 	int equal = 1;
 	
     for(int i = 0; i < c; i++)
-		if(fabs(v[i]-w[i]) > p){
+		if(fabs(v[i]-w[i]) > p) {
 			printf("%2.20lf %2.20lf\n",v[i],w[i]);
-			equal = 0;}
+			equal = 0;
+		}
 	
 	return equal;
 }
@@ -91,9 +93,10 @@ int equals_matrix(double **A, double **B, int f, int c, double p) {
 	
     for(int i = 0; i < f; i++)
 		for(int j = 0; j < c; j++)
-			if(fabs(A[i][j]-B[i][j]) > p){
+			if(fabs(A[i][j]-B[i][j]) > p) {
 				printf("%2.20lf %2.20lf\n",A[i][j],B[i][j]);
-				equal = 0;}
+				equal = 0;
+			}
 	
 	return equal;
 }
@@ -1528,6 +1531,42 @@ int ode_01() {
     return 0;
 }
 
+/** @brief Unit test for function poly_roots.
+ *
+ *  @return 0=error, 1=pass.
+ */
+int poly_roots_01() {
+	int degree = 8;
+	double *zeror, *zeroi;
+
+	double *coef = v_create(9);
+	coef[0] = 1.0; coef[1] = 0.0; coef[2] = -73120740632072.03125;
+	coef[3] = 0.0; coef[4] = 0.0; coef[5] = -1587936795676375129762729592392515584.0;
+	coef[6] = 0.0; coef[7] = 0.0; coef[8] = -11985384853690913913633237309023581769694874388537465110528.0;
+
+	int nr = real_poly_roots(coef, degree, &zeror, &zeroi);
+
+	double *zeror_sol = v_create(degree);
+	zeror_sol[0] = 20488505.595837317; zeror_sol[1] = -16734286.967634279; zeror_sol[2] = -14960114.444054067;
+	zeror_sol[3] = -14960114.444054067; zeror_sol[4] = 11333954.319395743; zeror_sol[5] = 11333954.319395743;
+	zeror_sol[6] = 1749050.8105568048; zeror_sol[7] = 1749050.8105568048;
+	double *zeroi_sol = v_create(degree);
+	zeroi_sol[0] = 0.0; zeroi_sol[1] = 0.0; zeroi_sol[2] = 12499576.438681951;
+	zeroi_sol[3] = -12499576.438681951; zeroi_sol[4] = 12628091.671924857; zeroi_sol[5] = -12628091.671924857;
+	zeroi_sol[6] = 17787677.850441489; zeroi_sol[7] = -17787677.850441489;
+	_assert(nr == degree &&
+			equals_vector(zeror_sol,zeror,degree,1e-7) &&
+			equals_vector(zeroi_sol,zeroi,degree,1e-7));
+
+	v_free(coef,9);
+	v_free(zeror,degree);
+	v_free(zeroi,degree);
+	v_free(zeror_sol,degree);
+	v_free(zeroi_sol,degree);
+
+    return 0;
+}
+
 /** @brief Unit test caller.
  *
  *  @return 0=error, 1=pass.
@@ -1592,6 +1631,8 @@ int all_tests() {
 	_verify(VarEqn_01);
 	
 	_verify(ode_01);
+
+	_verify(poly_roots_01);
 
     return 0;
 }
