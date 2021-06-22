@@ -11,6 +11,7 @@
 #include "../includes/m_utils.h"
 
 #include <stdio.h>
+#include <math.h>
 
 
 double *AccelPointMass(double *r, double *s, double GM) {

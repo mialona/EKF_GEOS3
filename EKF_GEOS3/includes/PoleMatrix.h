@@ -15,8 +15,8 @@
 
 /** @brief Pseudo Earth-fixed to Earth-fixed coordinates for a given date.
  *
- *  @param [in] xp Pole coordinte.
- *  @param [in] yp Pole coordinte.
+ *  @param [in] xp Pole coordinate.
+ *  @param [in] yp Pole coordinate.
  *  @return Pole Matrix.
  */
 double **PoleMatrix(double xp, double yp);

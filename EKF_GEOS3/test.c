@@ -25,7 +25,6 @@
 #include "includes/gmst.h"
 #include "includes/timediff.h"
 #include "includes/unit.h"
-#include "includes/sign_.h"
 #include "includes/EqnEquinox.h"
 #include "includes/gast.h"
 #include "includes/Geodetic.h"
@@ -808,19 +807,6 @@ int unit_01() {
 	v_free(v,n);
 	v_free(v_sol,n);
 	v_free(r,n);
-	
-    return 0;
-}
-
-/** @brief Unit test for function sign_.
- *
- *  @return 0=error, 1=pass.
- */
-int sign_01() {
-    double a = 5, b =-3, sol = -5;
-    
-	double r = sign_(a,b);
-    _assert(fabs(sol - r) < 1e-15);
 	
     return 0;
 }
@@ -1647,7 +1633,6 @@ int all_tests() {
     _verify(gmst_01);
     _verify(timediff_01);
     _verify(unit_01);
-    _verify(sign_01);
     _verify(EqnEquinox_01);
     _verify(gast_01);
     _verify(Geodetic_01);

@@ -22,7 +22,7 @@
  *  @param [in] r2 ijk position vector 2.
  *  @param [in] r3 ijk position vector 3.
  *  @param [out] v2 ijk velocity vector for r2.
- *  @param [out] theta Angl between vectors.
+ *  @param [out] theta Angle between vectors.
  *  @param [out] theta1.
  *  @param [out] copa.
  *  @param [out] error Flag indicating success.

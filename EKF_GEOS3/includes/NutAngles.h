@@ -15,7 +15,7 @@
 
 /** @brief Calculation of the nutation in longitude and obliquity.
  *
- *  @param [in] year Year.
+ *  @param [in] Mjd_TT Modified Julian Date (Terrestrial Time).
  *  @param [out] dpsi Nutation Angle.
  *  @param [out] deps Nutation Angle.
  */

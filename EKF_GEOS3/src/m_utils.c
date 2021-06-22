@@ -37,8 +37,9 @@ void v_show(double *v, int c) {
 double *v_sum(double *v, int cv, double *w, int cw) {
 	double *r = v_create(cv);
 	
-    if (cv != cw)
+    if (cv != cw) {
         exit(EXIT_FAILURE);
+    }
 	
 	for(int i = 0; i < cv; i++)
 		r[i] = v[i]+w[i];

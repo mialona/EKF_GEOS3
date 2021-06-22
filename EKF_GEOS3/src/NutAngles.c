@@ -8,7 +8,7 @@
  *  @bug No know bugs.
  */
 
-#include "../includes/../includes/const.h"
+#include "../includes/const.h"
 #include "../includes/m_utils.h"
 
 #include <stdio.h>

@@ -18,9 +18,9 @@ void timediff(double UT1_UTC, double TAI_UTC, double *UT1_TAI, double *UTC_GPS,
 
 	double GPS_TAI = -19.0;            // GPS-TAI time difference [s]
 
-	double TT_GPS  =  TT_TAI-GPS_TAI;  // TT-GPS time difference [s]
+//	double TT_GPS  =  TT_TAI-GPS_TAI;  // TT-GPS time difference [s]
 
-	double TAI_GPS = -GPS_TAI;         // TAI-GPS time difference [s]
+//	double TAI_GPS = -GPS_TAI;         // TAI-GPS time difference [s]
 
 	*UT1_TAI = UT1_UTC-TAI_UTC;  // UT1-TAI time difference [s]
 
